@@ -1,0 +1,325 @@
+/* Banking Specific Components */
+
+/* ===== LOAN CALCULATOR COMPONENT ===== */
+.loan-calculator {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border-radius: var(--radius-2xl);
+    border: 1px solid var(--gray-200);
+    box-shadow: var(--shadow-banking);
+    padding: 2rem;
+}
+
+.loan-calculator-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.loan-calculator-header-icon {
+    width: 3rem;
+    height: 3rem;
+    background: linear-gradient(135deg, var(--equity-red) 0%, var(--equity-red-dark) 100%);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.loan-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 0.5rem;
+    background: linear-gradient(to right, var(--equity-green), var(--equity-yellow), var(--equity-red));
+    border-radius: var(--radius-full);
+    outline: none;
+}
+
+.loan-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: white;
+    border: 3px solid var(--equity-red);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+}
+
+.loan-slider::-moz-range-thumb {
+    width: 1.5rem;
+    height: 1.5rem;
+    background: white;
+    border: 3px solid var(--equity-red);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+}
+
+.tenure-selector {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    gap: 0.5rem;
+}
+
+.tenure-option {
+    padding: 0.75rem;
+    text-align: center;
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-weight: 600;
+}
+
+.tenure-option:hover {
+    border-color: var(--equity-red);
+}
+
+.tenure-option.active {
+    background: var(--equity-red);
+    color: white;
+    border-color: var(--equity-red);
+}
+
+/* ===== DOCUMENT UPLOAD COMPONENT ===== */
+.document-upload-zone {
+    border: 3px dashed var(--gray-300);
+    border-radius: var(--radius-xl);
+    padding: 3rem 2rem;
+    text-align: center;
+    transition: all var(--transition-base);
+    background: var(--gray-50);
+}
+
+.document-upload-zone:hover,
+.document-upload-zone.drag-active {
+    border-color: var(--equity-red);
+    background: rgba(163, 42, 41, 0.05);
+}
+
+.document-upload-zone-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--gray-400);
+}
+
+.document-upload-zone.drag-active .document-upload-zone-icon {
+    color: var(--equity-red);
+}
+
+.document-preview {
+    position: relative;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: white;
+}
+
+.document-preview-actions {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    display: flex;
+    gap: 0.5rem;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.document-preview:hover .document-preview-actions {
+    opacity: 1;
+}
+
+/* ===== PROGRESS TRACKER ===== */
+.progress-tracker {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 2rem 0;
+}
+
+.progress-tracker::before {
+    content: '';
+    position: absolute;
+    top: 1.25rem;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gray-200);
+    z-index: 1;
+}
+
+.progress-tracker-step {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.progress-tracker-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 1.25rem;
+    left: 50%;
+    right: -50%;
+    height: 3px;
+    background: var(--gray-200);
+    z-index: -1;
+    transition: background var(--transition-slow);
+}
+
+.progress-tracker-step.completed:not(:last-child)::after {
+    background: var(--equity-green);
+}
+
+.progress-tracker-step-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: white;
+    border: 3px solid var(--gray-300);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: var(--gray-500);
+    margin-bottom: 0.75rem;
+    transition: all var(--transition-base);
+}
+
+.progress-tracker-step.active .progress-tracker-step-icon {
+    border-color: var(--equity-red);
+    background: var(--equity-red);
+    color: white;
+    box-shadow: 0 0 0 6px rgba(163, 42, 41, 0.1);
+}
+
+.progress-tracker-step.completed .progress-tracker-step-icon {
+    border-color: var(--equity-green);
+    background: var(--equity-green);
+    color: white;
+}
+
+/* ===== SECURITY BADGE ===== */
+.security-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    color: white;
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.security-badge-icon {
+    animation: pulse 2s infinite;
+}
+
+/* ===== BANKING DATA TABLE ===== */
+.banking-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.banking-table thead th {
+    background: var(--gray-50);
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--gray-700);
+    border-bottom: 2px solid var(--gray-200);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.banking-table tbody tr {
+    transition: background var(--transition-fast);
+}
+
+.banking-table tbody tr:hover {
+    background: var(--gray-50);
+}
+
+.banking-table tbody td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.banking-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ===== KENYAN CURRENCY FORMAT ===== */
+.currency-kes {
+    position: relative;
+    padding-left: 1.75rem;
+}
+
+.currency-kes::before {
+    content: 'KES';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.75em;
+    color: var(--gray-500);
+    font-weight: 500;
+}
+
+/* ===== MOBILE BANKING OPTIMIZATIONS ===== */
+@media (max-width: 640px) {
+    .loan-calculator {
+        padding: 1.5rem;
+    }
+
+    .tenure-selector {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .progress-tracker {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem 0;
+    }
+
+    .progress-tracker::before,
+    .progress-tracker-step:not(:last-child)::after {
+        display: none;
+    }
+
+    .progress-tracker-step {
+        flex-direction: row;
+        gap: 1rem;
+        align-items: center;
+        text-align: left;
+    }
+
+    .progress-tracker-step-icon {
+        margin-bottom: 0;
+        flex-shrink: 0;
+    }
+}
+
+/* ===== PRINT OPTIMIZATIONS ===== */
+@media print {
+
+    .loan-calculator,
+    .document-upload-zone,
+    .progress-tracker {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .security-badge {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
